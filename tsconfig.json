@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "./lib",
+    "noImplicitAny": true,
+    "target": "es6",
+    "module": "commonjs",
+    "jsx": "react",
+    "lib": [ "dom", "es2017" ],
+    "declaration": true,
+    "sourceMap": false,
+    "strictNullChecks": true,
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "strictFunctionTypes": true,
+    "declarationDir": "./build",
+    "esModuleInterop": true
+  },
+  "include": [ "src/*", "src/**/*", "src/**/**/*", "src/**/**/**/*" ],
+  "exclude": [
+    "node_modules"
+  ]
+}
