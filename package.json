@@ -1,5 +1,5 @@
 {
-  "name": "rcsb-search-tools",
+  "name": "@rcsb/rcsb-search-tools",
   "version": "0.0.1",
   "description": "RCSB PDB Search API request tools",
   "main": "build/app.js",
@@ -10,6 +10,13 @@
     "test": "jest",
     "tsc": "tsc",
     "publishApp": "npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rcsb/rcsb-search-tools.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   },
   "author": "Joan Segura Mora",
   "license": "MIT",
