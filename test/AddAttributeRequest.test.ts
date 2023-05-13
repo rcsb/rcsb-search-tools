@@ -12,7 +12,6 @@ import {
 import {RcsbSearchMetadata} from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchMetadata";
 import {expectDefined} from "./Utils/TestUtils";
 
-
 describe('Testing attribute addition to search request', ()=> {
     test('Response should not be empty, Entry type and result count gt 60000', async ()=> {
 

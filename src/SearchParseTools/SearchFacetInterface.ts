@@ -1,12 +1,9 @@
 import {
     CardinalityFacet,
-    DateHistogramFacet, DateRangeFacet, FilterFacet,
+    DateHistogramFacet, DateRangeFacet,
     HistogramFacet, RangeFacet,
     TermsFacet,
-    AttributeTextQueryParameters
 } from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchQueryInterface";
-import {RcsbSearchAttributeType} from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchMetadata";
-import {Service} from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchEnums";
 
 export type FacetAttributeType = TermsFacet | HistogramFacet | DateHistogramFacet | RangeFacet | DateRangeFacet | CardinalityFacet;
 

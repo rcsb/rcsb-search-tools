@@ -1,5 +1,5 @@
 import {
-    GroupNode, RequestOptions, ResultsContentType, SearchQuery,
+    GroupNode, RequestOptions,  SearchQuery,
     TerminalNode
 } from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchQueryInterface";
 import {

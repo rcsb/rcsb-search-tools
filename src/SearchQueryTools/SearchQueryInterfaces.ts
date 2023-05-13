@@ -1,12 +1,9 @@
 import {RcsbSearchAttributeType} from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchMetadata";
 import {
-    AttributeTextQueryParameters,
-    RequestOptions
+    AttributeTextQueryParameters
 } from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchQueryInterface";
 import {
-    RelevanceScoreRankingOption,
-    ScoringStrategy,
-    Service, SortDirection
+    Service
 } from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchEnums";
 
 export interface SearchAttributeInterface {

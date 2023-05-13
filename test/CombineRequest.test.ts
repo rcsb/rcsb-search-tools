@@ -8,14 +8,11 @@ import {QueryResult} from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchRes
 import {SearchRequest} from "@rcsb/rcsb-api-tools/build/RcsbSearch/SearchRequest";
 import {
     buildAttributeQuery,
-    buildRequestFromAttribute, buildRequestFromCombinedSearchQuery, buildRequestFromSearchQuery, combineSearchQuery,
+     buildRequestFromCombinedSearchQuery,
     SearchQueryType
 } from "../src/SearchQueryTools/SearchQueryTools";
 import {RcsbSearchMetadata} from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchMetadata";
 import {expectDefined} from "./Utils/TestUtils";
-import {SEQUENCE_QUERY} from "./Utils/TestData";
-
-
 
 describe('Combining search queries test', ()=> {
     test('Response should not be empty, type polymer_entity and result count gt 1000', async ()=> {

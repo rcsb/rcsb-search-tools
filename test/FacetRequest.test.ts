@@ -13,8 +13,6 @@ import {getFacetsFromSearch} from "../src/SearchParseTools/SearchFacetTools";
 import {expectDefined} from "./Utils/TestUtils";
 import {FacetAttributeType} from "../src/SearchParseTools/SearchFacetInterface";
 
-
-
 describe('Facet request testing to RCSB Search API', ()=> {
     test('Testing facet consistency: query and response facet name matching and non-empty', async ()=> {
 

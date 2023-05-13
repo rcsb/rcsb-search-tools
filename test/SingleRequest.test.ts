@@ -10,8 +10,6 @@ import {buildRequestFromAttribute} from "../src/SearchQueryTools/SearchQueryTool
 import {RcsbSearchMetadata} from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchMetadata";
 import {expectDefined} from "./Utils/TestUtils";
 
-
-
 describe('Single request testing to RCSB Search API', ()=> {
     test('Response should be non empty, Entry type and total count gt 200000', async ()=> {
 
