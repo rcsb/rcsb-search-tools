@@ -75,13 +75,10 @@ export const CATH_FACET: FilterFacetType = {
     }]
 }
 
-export const RELEASE_DATE_AND_EXPL_FACET: AttributeFacetType = {
+export const RELEASE_DATE: AttributeFacetType = {
     name: `FACET/${RcsbSearchMetadata.RcsbAccessionInfo.InitialReleaseDate.path}`,
     aggregation_type: AggregationType.DateHistogram,
     attribute: RcsbSearchMetadata.RcsbAccessionInfo.InitialReleaseDate.path,
     interval: Interval.Year,
-    min_interval_population: 0,
-    facets: [
-        EXPL_METHOD_FACET
-    ]
+    min_interval_population: 0
 };

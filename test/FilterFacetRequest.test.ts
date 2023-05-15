@@ -12,7 +12,7 @@ import {getFacetsFromSearch} from "../src/SearchParseTools/SearchFacetTools";
 import {expectDefined} from "./Utils/TestUtils";
 import {FilterFacetType} from "../src/SearchParseTools/SearchFacetInterface";
 import {SearchRequestType} from "../src/SearchQueryTools/SearchQueryInterfaces";
-describe('Facet request testing to RCSB Search API', ()=> {
+describe('Filter facet request testing to RCSB Search API', ()=> {
     test('Testing facet consistency: query and response facet name matching and non-empty', async ()=> {
 
         SearchClient.set( new SearchRequest(undefined, fetch as unknown as (input:RequestInfo, init?:RequestInit)=>Promise<Response>) );
