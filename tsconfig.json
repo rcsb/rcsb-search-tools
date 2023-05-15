@@ -13,7 +13,7 @@
     "resolveJsonModule": true,
     "allowJs": true,
     "strictFunctionTypes": true,
-    "declarationDir": "./build",
+    "declarationDir": "./lib",
     "esModuleInterop": true
   },
   "include": [ "src/*", "src/**/*", "src/**/**/*", "src/**/**/**/*" ],

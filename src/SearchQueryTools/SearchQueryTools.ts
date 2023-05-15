@@ -1,23 +1,21 @@
 import {
-    GroupNode, RequestOptions,  SearchQuery,
-    TerminalNode
-} from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchQueryInterface";
-import {
     LogicalOperator,
     Type,
     ReturnType
 } from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchEnums";
 import {cloneDeep} from "lodash";
-import {SearchAttributeInterface} from "./SearchQueryInterfaces";
-
-export type SearchQueryType = GroupNode | TerminalNode;
-export type SearchRequestType = SearchQuery;
+import {
+    RequestOptionsType,
+    SearchAttributeInterface,
+    SearchQueryType,
+    SearchRequestType
+} from "./SearchQueryInterfaces";
 
 
 export function buildRequestFromAttribute(
     searchAttribute: SearchAttributeInterface,
     returnType: ReturnType,
-    requestOptions?: RequestOptions
+    requestOptions?: RequestOptionsType
 ): SearchRequestType {
     return {
         query: buildAttributeQuery(searchAttribute),
@@ -30,7 +28,7 @@ export function buildRequestFromAttributeAndSearchQuery (
     searchQuery: SearchQueryType,
     returnType: ReturnType,
     logicalOperator = LogicalOperator.And,
-    requestOptions?: RequestOptions
+    requestOptions?: RequestOptionsType
 ): SearchRequestType {
     return {
         query: addAttributeToSearchQuery(searchAttribute,searchQuery,logicalOperator),
@@ -44,7 +42,7 @@ export function buildRequestFromCombinedSearchQuery(
     searchQuery: SearchQueryType,
     returnType: ReturnType,
     logicalOperator = LogicalOperator.And,
-    requestOptions?: RequestOptions
+    requestOptions?: RequestOptionsType
 ): SearchRequestType {
     return {
         query: combineSearchQuery(additionalSearchQuery,searchQuery),
@@ -56,7 +54,7 @@ export function buildRequestFromCombinedSearchQuery(
 export function buildRequestFromSearchQuery(
     searchQuery: SearchQueryType,
     returnType: ReturnType,
-    requestOptions?: RequestOptions
+    requestOptions?: RequestOptionsType
 ): SearchRequestType {
     return {
         query: searchQuery,

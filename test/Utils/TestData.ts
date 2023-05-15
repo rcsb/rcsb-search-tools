@@ -1,11 +1,18 @@
-import {AggregationType, SequenceType, Service, Type} from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchEnums";
+import {
+    AggregationType,
+    Interval,
+    SequenceType,
+    Service,
+    Type
+} from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchEnums";
 import {RcsbSearchMetadata} from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchMetadata";
-import {buildAttributeQuery, SearchQueryType} from "../../src/SearchQueryTools/SearchQueryTools";
-import {FacetAttributeType} from "../../src/SearchParseTools/SearchFacetInterface";
+import {buildAttributeQuery} from "../../src/SearchQueryTools/SearchQueryTools";
+import {AttributeFacetType, FilterFacetType} from "../../src/SearchParseTools/SearchFacetInterface";
+import {SearchQueryType} from "../../src/SearchQueryTools/SearchQueryInterfaces";
 
 export const FULL_ARCHIVE_QUERY: SearchQueryType = buildAttributeQuery({
     attribute: RcsbSearchMetadata.RcsbEntryInfo.StructureDeterminationMethodology.path,
-    value: "experimental",
+    value: RcsbSearchMetadata.RcsbEntryInfo.StructureDeterminationMethodology.enum.experimental,
     operator: RcsbSearchMetadata.RcsbEntryInfo.StructureDeterminationMethodology.operator.ExactMatch,
     service: Service.Text
 });
@@ -17,26 +24,64 @@ export const SEQUENCE_QUERY: SearchQueryType = {
         evalue_cutoff: 0.1,
         identity_cutoff: 0,
         sequence_type: SequenceType.Protein,
-        value: "MVLSEGEWQLVLHVWAKVEADVAGHGQDILIRLFKSHPETLEKFDRVKHLKTEAEMKASEDLKKHGVTVLTALGAILKKKGHHEAELKPLAQSHATKHKIPIKYLEFISEAIIHVLHSRHPGNFGADAQGAMNKALELFRKDIAAKYKELGYQG"
+        value: "MTEYKLVVVGAVGVGKSALTIQLIQNHFVDEYDPTIEDSYRKQVVIDGETCLLDILDTAGQEEYSAMRDQYMRTGEGFLCFAINNTKSFEDIHQYREQIKRVKDSDDVPMVLVGNKCDLAARTVESRQAQDLARSYGIPYIETSAKTRQGVEDAFYTLVREIRQH"
     }
 };
 
-export const EXPL_METHOD_FACET: FacetAttributeType = {
+export const EXPL_METHOD_FACET: AttributeFacetType = {
     name: `FACET/${RcsbSearchMetadata.Exptl.Method.path}`,
     aggregation_type: AggregationType.Terms,
     attribute: RcsbSearchMetadata.Exptl.Method.path
 };
 
-export const PRIMARY_CITATION_FACET: FacetAttributeType =  {
+export const PRIMARY_CITATION_FACET: AttributeFacetType =  {
     name: `FACET/${RcsbSearchMetadata.RcsbPrimaryCitation.RcsbJournalAbbrev.path}`,
     aggregation_type: AggregationType.Terms,
     attribute: RcsbSearchMetadata.RcsbPrimaryCitation.RcsbJournalAbbrev.path
 };
 
-export const RESOLUTION_FACET: FacetAttributeType = {
+export const RESOLUTION_FACET: AttributeFacetType = {
     name: `FACET/${RcsbSearchMetadata.RcsbEntryInfo.DiffrnResolutionHigh.Value.path}`,
     aggregation_type: AggregationType.Histogram,
     attribute: RcsbSearchMetadata.RcsbEntryInfo.DiffrnResolutionHigh.Value.path,
-    interval: 0.5,
-    min_interval_population: 1
+    interval: 0.5
+};
+
+export const CATH_FACET: FilterFacetType = {
+    filter: {
+        type: Type.Terminal,
+        service: Service.Text,
+        parameters: {
+            attribute: RcsbSearchMetadata.RcsbPolymerInstanceAnnotation.Type.path,
+            operator: RcsbSearchMetadata.RcsbPolymerInstanceAnnotation.Type.operator.ExactMatch,
+            value:  RcsbSearchMetadata.RcsbPolymerInstanceAnnotation.Type.enum.CATH
+        }
+    },
+    facets: [{
+        filter: {
+            type: Type.Terminal,
+            service: Service.Text,
+            parameters: {
+                attribute: RcsbSearchMetadata.RcsbPolymerInstanceAnnotation.AnnotationLineage.Depth.path,
+                operator: RcsbSearchMetadata.RcsbPolymerInstanceAnnotation.AnnotationLineage.Depth.operator.Equals,
+                value: 4
+            }
+        },
+        facets: [{
+            name: `FACET/${RcsbSearchMetadata.RcsbPolymerInstanceAnnotation.AnnotationLineage.Name.path}/${RcsbSearchMetadata.RcsbPolymerInstanceAnnotation.Type.enum.CATH}`,
+            attribute: RcsbSearchMetadata.RcsbPolymerInstanceAnnotation.AnnotationLineage.Name.path,
+            aggregation_type: AggregationType.Terms
+        }]
+    }]
+}
+
+export const RELEASE_DATE_AND_EXPL_FACET: AttributeFacetType = {
+    name: `FACET/${RcsbSearchMetadata.RcsbAccessionInfo.InitialReleaseDate.path}`,
+    aggregation_type: AggregationType.DateHistogram,
+    attribute: RcsbSearchMetadata.RcsbAccessionInfo.InitialReleaseDate.path,
+    interval: Interval.Year,
+    min_interval_population: 0,
+    facets: [
+        EXPL_METHOD_FACET
+    ]
 };

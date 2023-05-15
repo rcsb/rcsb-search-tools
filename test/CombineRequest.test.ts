@@ -1,5 +1,4 @@
 import fetch from "node-fetch";
-import {SearchQuery} from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchQueryInterface";
 import {
     ReturnType, SequenceType, Service, Type,
 } from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchEnums";
@@ -8,12 +7,11 @@ import {QueryResult} from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchRes
 import {SearchRequest} from "@rcsb/rcsb-api-tools/build/RcsbSearch/SearchRequest";
 import {
     buildAttributeQuery,
-     buildRequestFromCombinedSearchQuery,
-    SearchQueryType
+    buildRequestFromCombinedSearchQuery
 } from "../src/SearchQueryTools/SearchQueryTools";
 import {RcsbSearchMetadata} from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchMetadata";
 import {expectDefined} from "./Utils/TestUtils";
-
+import {SearchRequestType, SearchQueryType} from "../src/SearchQueryTools/SearchQueryInterfaces";
 describe('Combining search queries test', ()=> {
     test('Response should not be empty, type polymer_entity and result count gt 1000', async ()=> {
 
@@ -32,10 +30,10 @@ describe('Combining search queries test', ()=> {
                 evalue_cutoff: 0.1,
                 identity_cutoff: 0,
                 sequence_type: SequenceType.Protein,
-                value: "MTEYKLVVVGAVGVGKSALTIQLIQNHFVDEYDPTIEDSYRKQVVIDGETCLLDILDTAGQEEYSAMRDQYMRTGEGFLCVFAINNTKSFEDIHQYREQIKRVKDSDDVPMVLVGNKCDLAARTVESRQAQDLARSYGIPYIETSAKTRQGVEDAFYTLVREIRQH"
+                value: "MTEYKLVVVGAVGVGKSALTIQLIQNHFVDEYDPTIEDSYRKQVVIDGETCLLDILDTAGQEEYSAMRDQYMRTGEGFLCFAINNTKSFEDIHQYREQIKRVKDSDDVPMVLVGNKCDLAARTVESRQAQDLARSYGIPYIETSAKTRQGVEDAFYTLVREIRQH"
             }
         };
-        const query: SearchQuery = buildRequestFromCombinedSearchQuery(
+        const query: SearchRequestType = buildRequestFromCombinedSearchQuery(
             sequenceQuery,
             attributeQuery,
             ReturnType.PolymerEntity

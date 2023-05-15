@@ -1,4 +1,4 @@
-import {SearchBucketFacetType } from "./SearchFacetInterface";
+import {SearchBucketFacetType} from "./SearchFacetInterface";
 import {
     BucketFacet, QueryResult,
     SingleValueMetricsFacet
