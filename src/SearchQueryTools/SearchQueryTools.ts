@@ -110,15 +110,15 @@ export function buildAttributeQuery(searchAttribute: SearchAttributeInterface): 
     }
 }
 
-export function buildMultiFacet(addFacet: AttributeFacetType|FilterFacetType, toFacet: AttributeFacetType|FilterFacetType): AttributeFacetType|FilterFacetType {
-    toFacet = cloneDeep(toFacet);
+export function buildMultiFacet(addFacet: AttributeFacetType|FilterFacetType, toFacet: AttributeFacetType|FilterFacetType): void {
+    if(Array.isArray(toFacet.facets)) {
+        toFacet.facets.forEach(f=> buildMultiFacet(addFacet,f));
+    }
     if('name' in toFacet && 'attribute' in toFacet){
         if(Array.isArray(toFacet.facets)) {
-            toFacet.facets.forEach(f=> buildMultiFacet(addFacet,f));
             toFacet.facets.unshift(addFacet);
         } else {
             toFacet.facets = [addFacet]
         }
     }
-    return toFacet;
 }

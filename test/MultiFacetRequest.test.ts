@@ -15,12 +15,15 @@ import {getFacetsFromSearch} from "../src/SearchParseTools/SearchFacetTools";
 import {expectDefined} from "./Utils/TestUtils";
 import {AttributeFacetType, FilterFacetType} from "../src/SearchParseTools/SearchFacetInterface";
 import {SearchRequestType} from "../src/SearchQueryTools/SearchQueryInterfaces";
+import {cloneDeep} from "lodash";
 
 describe('Multi faceting request testing to RCSB Search API', ()=> {
     test('Testing facet consistency: query and response facet name matching and non-empty, non-empty buckets', async ()=> {
 
         SearchClient.set( new SearchRequest(undefined, fetch as unknown as (input:RequestInfo, init?:RequestInit)=>Promise<Response>) );
-        const queryFacets: [AttributeFacetType|FilterFacetType, ...(AttributeFacetType|FilterFacetType)[]] = [buildMultiFacet(EXPL_METHOD_FACET, RELEASE_DATE)];
+        const multiFacet: AttributeFacetType = cloneDeep(RELEASE_DATE);
+        buildMultiFacet(EXPL_METHOD_FACET, multiFacet);
+        const queryFacets: [AttributeFacetType|FilterFacetType, ...(AttributeFacetType|FilterFacetType)[]] = [multiFacet];
         const query: SearchRequestType =  buildRequestFromAttribute({
                 attribute: RcsbSearchMetadata.RcsbEntryInfo.StructureDeterminationMethodology.path,
                 value: RcsbSearchMetadata.RcsbEntryInfo.StructureDeterminationMethodology.enum.experimental,
@@ -38,6 +41,8 @@ describe('Multi faceting request testing to RCSB Search API', ()=> {
         expect(response.facets?.length).toBe(1);
 
         const facets = getFacetsFromSearch(response);
+        expect(facets.filter(f=>f.name == RELEASE_DATE.name).length).toBeGreaterThan(0);
+        expect(facets.filter(f=>f.name == EXPL_METHOD_FACET.name).length).toBeGreaterThan(0);
         facets.forEach(f=>{
             expect([RELEASE_DATE.name, EXPL_METHOD_FACET.name]).toContainEqual(f.name);
             if(f.name == EXPL_METHOD_FACET.name)
