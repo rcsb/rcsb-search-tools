@@ -3,7 +3,7 @@
 RCSB Search Tools is an open-source library that includes different tools to build queries, request and parse data from the 
 [RCSB Search API](https://search.rcsb.org/).
 
-### Node Module Instalation
+### Node Module Installation
 `npm install @rcsb/rcsb-search-tools`
 
 ### Folder organization
