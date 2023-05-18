@@ -19,7 +19,7 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "author": "Joan Segura Mora",
+  "author": "Joan Segura Mora <joan.segura@rcsb.org>",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.18.9",
