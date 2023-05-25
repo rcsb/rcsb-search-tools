@@ -18,6 +18,6 @@ export interface SearchAttributeInterface {
 export type SearchQueryType = GroupNode | TerminalNode;
 export type SearchRequestType = Omit<SearchQuery, "request_options"> & {request_options?: RequestOptionsType};
 export type RequestOptionsType = Omit<RequestOptions, "facets"> & {
-    facets: [(FilterFacetType|AttributeFacetType), ...(FilterFacetType|AttributeFacetType)[]];
+    facets?: [(FilterFacetType|AttributeFacetType), ...(FilterFacetType|AttributeFacetType)[]];
 };
 
