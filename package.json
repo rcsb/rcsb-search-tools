@@ -1,6 +1,6 @@
 {
   "name": "@rcsb/rcsb-search-tools",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "RCSB PDB Search API request tools",
   "main": "build/app.js",
   "files": [

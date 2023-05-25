@@ -38,13 +38,13 @@ type CardinalityFacetType = Omit<CardinalityFacet, "attribute" | "facets"> & {
 
 export type AttributeFacetType = TermsFacetType | HistogramFacetType | DateHistogramFacetType | RangeFacetType | DateRangeFacetType | CardinalityFacetType;
 
-type FilterQueryTerminalNodeType = Omit<FilterQueryTerminalNode, "parameters"> & {
+export type FilterQueryTerminalNodeType = Omit<FilterQueryTerminalNode, "parameters"> & {
     parameters: Omit<FilterQueryTerminalNode["parameters"], "attribute"> & {
         attribute: RcsbSearchAttributeType;
     }
 };
 
-type FilterQueryGroupNodeType = Omit<FilterQueryGroupNode, "nodes"> & {
+export type FilterQueryGroupNodeType = Omit<FilterQueryGroupNode, "nodes"> & {
     nodes: [FilterQueryTerminalNodeType | FilterQueryGroupNodeType, ...(FilterQueryTerminalNodeType | FilterQueryGroupNodeType)[]];
 };
 
