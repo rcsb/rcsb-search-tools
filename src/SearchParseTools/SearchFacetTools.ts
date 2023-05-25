@@ -12,7 +12,7 @@ export function getFacetsFromSearch(
     return getBucketsFromFacets(searchResult.facets)
 }
 
-function getBucketsFromFacets(
+export function getBucketsFromFacets(
     searchResultFacets: (BucketFacet | SingleValueMetricsFacet)[],
     labelList?: string[],
     recursiveOut?: SearchBucketFacetType[]
