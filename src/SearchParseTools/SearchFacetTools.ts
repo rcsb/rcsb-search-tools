@@ -31,7 +31,7 @@ export function getBucketsFromFacets(
             labelPath: labelList ?? [],
             data: []
         };
-        bucketFacet.buckets.forEach(bucket=>{
+        bucketFacet.buckets?.forEach(bucket=>{
             if(bucket.label && bucket.population)
                 searchBucketFacet.data.push({
                     label: bucket.label,
