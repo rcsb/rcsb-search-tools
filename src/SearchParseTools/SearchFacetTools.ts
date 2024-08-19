@@ -20,7 +20,7 @@ export function getBucketsFromFacets(
     const out: SearchBucketFacetType[] = recursiveOut ?? [];
     const facets = collectFacets(searchResultFacets);
     facets.forEach(bucketFacet=> {
-        const innerFacets = bucketFacet.buckets.filter(g=> Array.isArray(g.facets) );
+        const innerFacets = bucketFacet.buckets?.filter(g=> Array.isArray(g.facets) ) ?? [];
         if(innerFacets.length > 0){
             innerFacets.forEach(g=>{
                 if(g.facets) getBucketsFromFacets(g.facets, labelList ? labelList.concat(g.label) : [g.label], out);
