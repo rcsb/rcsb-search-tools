@@ -1,6 +1,6 @@
 {
   "name": "@rcsb/rcsb-search-tools",
-  "version": "0.0.10",
+  "version": "0.0.14",
   "description": "RCSB PDB Search API request tools",
   "main": "build/app.js",
   "files": [
@@ -31,7 +31,7 @@
     "jest": "^29.5.0",
     "lodash": "^4.17.21",
     "node-fetch": "^2.6.7",
-    "ts-jest": "^29.1.0",
+    "ts-jest": "^29.2.4",
     "ts-loader": "^9.3.1",
     "ts-node": "^10.9.1",
     "typescript": "^5.0.4",

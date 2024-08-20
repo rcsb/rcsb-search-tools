@@ -57,10 +57,10 @@ export type FilterFacetType = Omit<FilterFacet, "facets" > & {
 export type BucketDataType = {
     label: string | number;
     population: number;
+    labelPath: string[],
 }
 
 export type SearchBucketFacetType = {
     name: string;
     data: BucketDataType[];
-    labelPath: string[],
 }

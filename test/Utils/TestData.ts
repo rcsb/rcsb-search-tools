@@ -82,3 +82,39 @@ export const RELEASE_DATE: AttributeFacetType = {
     interval: Interval.Year,
     min_interval_population: 0
 };
+
+export const GO_FUNCTION_FACET: FilterFacetType = {
+    filter: {
+        type: Type.Terminal,
+        service: Service.Text,
+        parameters: {
+            operator: RcsbSearchMetadata.RcsbPolymerEntityAnnotation.Type.operator.ExactMatch,
+            attribute: RcsbSearchMetadata.RcsbPolymerEntityAnnotation.Type.path,
+            value: "GO"
+        }
+    },
+    facets: [{
+        name: "GO_FUNCTION_FACET",
+        aggregation_type: AggregationType.Terms,
+        attribute: RcsbSearchMetadata.RcsbPolymerEntityAnnotation.Name.path,
+        max_num_intervals: 1000,
+        min_interval_population: 1,
+        facets: [{
+            filter: {
+                type: Type.Terminal,
+                service: Service.Text,
+                parameters: {
+                    operator: RcsbSearchMetadata.RcsbPolymerEntityAnnotation.Type.operator.ExactMatch,
+                    attribute: RcsbSearchMetadata.RcsbPolymerEntityAnnotation.AnnotationLineage.Name.path,
+                    value: "molecular_function"
+                }
+            },
+            facets: [{
+                name:`GO_FUNCTION_FACET/${RcsbSearchMetadata.RcsbPolymerEntityAnnotation.AnnotationLineage.Name.path}`,
+                aggregation_type: AggregationType.Terms,
+                min_interval_population: 1,
+                attribute: RcsbSearchMetadata.RcsbPolymerEntityAnnotation.AnnotationLineage.Name.path
+            }]
+        }]
+    }]
+}

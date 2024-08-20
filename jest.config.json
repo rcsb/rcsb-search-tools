@@ -1,4 +1,5 @@
 {
   "transform": {"^.+\\.ts?$": "ts-jest"},
-  "testEnvironment": "node"
+  "testEnvironment": "node",
+  "sourceMaps": "inline"
 }
