@@ -41,10 +41,6 @@ describe('Multi faceting request testing to RCSB Search API', ()=> {
         expect(response.facets?.length).toBe(1);
 
         const facets = getFacetsFromSearch(response);
-        facets.forEach(f=>{
-            f.data.forEach(d=>console.log(d))
-            console.log(f.name, f.data.length)
-        })
         expect(facets.filter(f=>f.name == RELEASE_DATE.name).length).toBe(0);
         expect(facets.filter(f=>f.name == EXPL_METHOD_FACET.name).length).toBe(1);
         facets.forEach(f=>{

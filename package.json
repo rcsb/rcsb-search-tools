@@ -1,6 +1,6 @@
 {
   "name": "@rcsb/rcsb-search-tools",
-  "version": "0.0.14",
+  "version": "0.0.15-dev-js-seqcoord.1",
   "description": "RCSB PDB Search API request tools",
   "main": "build/app.js",
   "files": [
@@ -9,8 +9,8 @@
   "scripts": {
     "runTest": "jest",
     "tsc": "tsc",
-    "buildApp": "npm run tsc",
-    "publishApp": "npm publish"
+    "buildApp": "npm run tsc && npm run runTest",
+    "publishApp": "npm publish --tag dev-js-seqcoord"
   },
   "repository": {
     "type": "git",
@@ -22,23 +22,24 @@
   "author": "Joan Segura Mora <joan.segura@rcsb.org>",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.18.9",
-    "@babel/preset-env": "^7.18.9",
-    "@types/jest": "^29.5.1",
-    "@types/lodash": "^4.14.194",
-    "@types/node-fetch": "^2.6.2",
-    "babel-loader": "^9.1.2",
-    "jest": "^29.5.0",
+    "@babel/core": "^7.26.10",
+    "@babel/preset-env": "^7.26.9",
+    "@types/jest": "^29.5.14",
+    "@types/lodash": "^4.17.16",
+    "@types/node-fetch": "^2.6.12",
+    "babel-jest": "^29.7.0",
+    "babel-loader": "^10.0.0",
+    "jest": "^29.7.0",
     "lodash": "^4.17.21",
-    "node-fetch": "^2.6.7",
-    "ts-jest": "^29.2.4",
-    "ts-loader": "^9.3.1",
-    "ts-node": "^10.9.1",
-    "typescript": "^5.0.4",
-    "webpack": "^5.74.0",
-    "webpack-cli": "^5.1.1"
+    "node-fetch": "^3.3.2",
+    "ts-jest": "^29.3.1",
+    "ts-loader": "^9.5.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.2",
+    "webpack": "5.94.0",
+    "webpack-cli": "^6.0.1"
   },
   "dependencies": {
-    "@rcsb/rcsb-api-tools": "^4.1.11"
+    "@rcsb/rcsb-api-tools": "^5.0.0-dev-js-seqcoord.4"
   }
 }
