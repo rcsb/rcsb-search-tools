@@ -4,8 +4,8 @@ import {
     SequenceType,
     Service,
     Type
-} from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchEnums";
-import {RcsbSearchMetadata} from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchMetadata";
+} from "@rcsb/rcsb-api-tools/lib/RcsbSearch/Types/SearchEnums";
+import {RcsbSearchMetadata} from "@rcsb/rcsb-api-tools/lib/RcsbSearch/Types/SearchMetadata";
 import {buildAttributeQuery} from "../../src/SearchQueryTools/SearchQueryTools";
 import {AttributeFacetType, FilterFacetType} from "../../src/SearchParseTools/SearchFacetInterface";
 import {SearchQueryType} from "../../src/SearchQueryTools/SearchQueryInterfaces";

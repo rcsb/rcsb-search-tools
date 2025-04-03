@@ -2,7 +2,7 @@ import {SearchBucketFacetType} from "./SearchFacetInterface";
 import {
     BucketFacet, QueryResult,
     SingleValueMetricsFacet
-} from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchResultInterface";
+} from "@rcsb/rcsb-api-tools/lib/RcsbSearch/Types/SearchResultInterface";
 
 export function getFacetsFromSearch(
     searchResult: QueryResult

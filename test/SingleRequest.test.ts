@@ -1,12 +1,12 @@
 import fetch from "node-fetch";
 import {
     ReturnType, Service,
-} from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchEnums";
+} from "@rcsb/rcsb-api-tools/lib/RcsbSearch/Types/SearchEnums";
 import {SearchClient} from "../src/SearchClient/SearchClient";
-import {QueryResult} from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchResultInterface";
-import {SearchRequest} from "@rcsb/rcsb-api-tools/build/RcsbSearch/SearchRequest";
+import {QueryResult} from "@rcsb/rcsb-api-tools/lib/RcsbSearch/Types/SearchResultInterface";
+import {SearchRequest} from "@rcsb/rcsb-api-tools/lib/RcsbSearch/SearchRequest";
 import {buildRequestFromAttribute} from "../src/SearchQueryTools/SearchQueryTools";
-import {RcsbSearchMetadata} from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchMetadata";
+import {RcsbSearchMetadata} from "@rcsb/rcsb-api-tools/lib/RcsbSearch/Types/SearchMetadata";
 import {expectDefined} from "./Utils/TestUtils";
 import {SearchRequestType} from "../src/SearchQueryTools/SearchQueryInterfaces";
 describe('Single request testing to RCSB Search API', ()=> {

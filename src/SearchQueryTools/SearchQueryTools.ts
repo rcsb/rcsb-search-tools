@@ -2,7 +2,7 @@ import {
     LogicalOperator,
     Type,
     ReturnType
-} from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchEnums";
+} from "@rcsb/rcsb-api-tools/lib/RcsbSearch/Types/SearchEnums";
 import {cloneDeep} from "lodash";
 import {
     RequestOptionsType,

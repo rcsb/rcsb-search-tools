@@ -1,15 +1,15 @@
 import fetch from "node-fetch";
 import {
     ReturnType, SequenceType, Service, Type,
-} from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchEnums";
+} from "@rcsb/rcsb-api-tools/lib/RcsbSearch/Types/SearchEnums";
 import {SearchClient} from "../src/SearchClient/SearchClient";
-import {QueryResult} from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchResultInterface";
-import {SearchRequest} from "@rcsb/rcsb-api-tools/build/RcsbSearch/SearchRequest";
+import {QueryResult} from "@rcsb/rcsb-api-tools/lib/RcsbSearch/Types/SearchResultInterface";
+import {SearchRequest} from "@rcsb/rcsb-api-tools/lib/RcsbSearch/SearchRequest";
 import {
     buildAttributeQuery,
     buildRequestFromCombinedSearchQuery
 } from "../src/SearchQueryTools/SearchQueryTools";
-import {RcsbSearchMetadata} from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchMetadata";
+import {RcsbSearchMetadata} from "@rcsb/rcsb-api-tools/lib/RcsbSearch/Types/SearchMetadata";
 import {expectDefined} from "./Utils/TestUtils";
 import {SearchRequestType, SearchQueryType} from "../src/SearchQueryTools/SearchQueryInterfaces";
 describe('Combining search queries test', ()=> {

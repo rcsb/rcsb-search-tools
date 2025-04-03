@@ -3,8 +3,8 @@ import {
     DateHistogramFacet, DateRangeFacet, FilterFacet, FilterQueryGroupNode, FilterQueryTerminalNode,
     HistogramFacet, RangeFacet,
     TermsFacet,
-} from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchQueryInterface";
-import {RcsbSearchAttributeType} from "@rcsb/rcsb-api-tools/build/RcsbSearch/Types/SearchMetadata";
+} from "@rcsb/rcsb-api-tools/lib/RcsbSearch/Types/SearchQueryInterface";
+import {RcsbSearchAttributeType} from "@rcsb/rcsb-api-tools/lib/RcsbSearch/Types/SearchMetadata";
 
 type TermsFacetType = Omit<TermsFacet, "attribute" | "facets"> & {
     attribute: RcsbSearchAttributeType;
