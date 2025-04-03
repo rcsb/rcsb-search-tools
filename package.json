@@ -10,7 +10,7 @@
     "runTest": "jest",
     "tsc": "tsc",
     "buildApp": "npm run tsc && npm run runTest",
-    "publishApp": "npm publish --tag dev-js-seqcoord"
+    "publishApp": "npm publish"
   },
   "repository": {
     "type": "git",
